@@ -24,7 +24,13 @@
         <td><%= movie.password %></td>
         <td><%= movie.title %></td>
         <td><%= movie.cover_art %></td>
-        <td><%= movie.director.bio %></td>
+        <td>
+          <% if movie.director.present? %>
+            <a href="/directors/<%= movie.director.id %>">
+              <%= movie.director.bio %>
+            </a>
+          <% end %>
+        </td>
         <td><%= movie.year %></td>
         <td>
           <a href="/movies/<%= movie.id %>" class="btn btn-primary">Show</a>
